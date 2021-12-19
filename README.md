@@ -2,7 +2,7 @@
 
 ## What is it?
 
-[remix](https://remix.run) + [type-graphql](https://typegraphql.com) + [envelop](https://www.envelop.dev) + [helix](https://github.com/contra/graphql-helix) + [urql](https://formidable.com/open-source/urql/)
+GraphQL schema is defined using [type-graphql](https://typegraphql.com) and then used in [remix](https://remix.run) loaders through [urql](https://formidable.com/open-source/urql/) client (with `exchange-execute`) to build UI. The same schema is also exposed under `/graphql` resource route through [envelop](https://www.envelop.dev) and [helix](https://github.com/contra/graphql-helix).
 
 Design by awesome [DoodleCSS](https://chr15m.github.io/DoodleCSS/)
 
