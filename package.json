@@ -1,0 +1,46 @@
+{
+  "private": true,
+  "name": "remix-graphql-example",
+  "description": "remix + type-graphql + envelop + helix + urql",
+  "license": "MIT",
+  "scripts": {
+    "build": "remix build",
+    "dev": "remix dev",
+    "postinstall": "remix setup node",
+    "start": "remix-serve build",
+    "generate": "graphql-codegen --config codegen.yml"
+  },
+  "dependencies": {
+    "@envelop/core": "^1.6.5",
+    "@envelop/depth-limit": "^1.2.1",
+    "@remix-run/react": "^1.1.1",
+    "@remix-run/serve": "^1.1.1",
+    "@urql/core": "^2.3.6",
+    "@urql/exchange-execute": "^1.2.2",
+    "graphql": "^15.8.0",
+    "graphql-helix": "^1.11.0",
+    "level-ts": "^2.1.0",
+    "nanoid": "^3.1.30",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "reflect-metadata": "^0.1.13",
+    "remix": "^1.1.1",
+    "type-graphql": "^1.1.1",
+    "zod": "^3.11.6"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.3.0",
+    "@graphql-codegen/typed-document-node": "^2.2.1",
+    "@graphql-codegen/typescript": "^2.4.1",
+    "@graphql-codegen/typescript-operations": "^2.2.1",
+    "@remix-run/dev": "^1.1.1",
+    "@types/graphql": "^14.5.0",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "sideEffects": false
+}

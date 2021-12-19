@@ -102,3 +102,11 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Remix
+/.cache
+/build
+/public/build
+
+# Level
+/db

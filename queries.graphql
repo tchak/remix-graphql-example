@@ -1,0 +1,34 @@
+query getTasks {
+  tasks {
+    id
+    title
+    checked
+  }
+}
+
+mutation addTask($input: AddTaskInput!) {
+  addTask(input: $input) {
+    task {
+      id
+    }
+    error
+  }
+}
+
+mutation toggleTask($input: ToggleTaskInput!) {
+  toggleTask(input: $input) {
+    task {
+      id
+    }
+    error
+  }
+}
+
+mutation removeTask($input: RemoveTaskInput!) {
+  removeTask(input: $input) {
+    task {
+      id
+    }
+    error
+  }
+}

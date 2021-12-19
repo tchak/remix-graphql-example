@@ -1,0 +1,13 @@
+overwrite: true
+schema: "schema.graphql"
+documents: "queries.graphql"
+generates:
+  app/queries.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+    config:
+      immutableTypes: true
+      skipTypename: true
+      useTypeImports: true
