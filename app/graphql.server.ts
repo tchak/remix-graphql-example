@@ -110,6 +110,9 @@ class MutationResolver {
 
 export const schema = buildSchemaSync({
   resolvers: [QueryResolver, MutationResolver],
-  emitSchemaFile: { path: './schema.graphql' },
+  emitSchemaFile:
+    process.env.NODE_ENV === 'development'
+      ? { path: './schema.graphql' }
+      : false,
   dateScalarMode: 'isoDate',
 });
