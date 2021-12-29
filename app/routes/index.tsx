@@ -49,13 +49,14 @@ export const action: ActionFunction = async ({ request }) => {
 export default function IndexRoute() {
   const data = useLoaderData<GetTasksQuery>();
   const transition = useTransition();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    if (transition.type == 'actionReload') {
-      if (inputRef.current) {
-        inputRef.current.value = '';
-      }
+    if (
+      transition.type == 'actionReload' &&
+      transition.submission.formData.get('actionType') == 'AddTask'
+    ) {
+      formRef.current?.reset();
     }
   }, [transition.type]);
 
@@ -64,10 +65,9 @@ export default function IndexRoute() {
       <div className="max-w-3xl mx-auto text-xl">
         <h1 className="text-4xl">Tasks</h1>
 
-        <Form method="post" replace className="flex mt-3">
+        <Form ref={formRef} method="post" replace className="flex mt-3">
           <input type="hidden" name="actionType" value="AddTask" />
           <input
-            ref={inputRef}
             type="text"
             name="title"
             className="flex-grow focus:outline-none"
