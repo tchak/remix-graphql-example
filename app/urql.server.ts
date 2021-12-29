@@ -5,18 +5,22 @@ import type { TypedDocumentNode } from '@graphql-typed-document-node/core';
 import { schema } from '~/graphql.server';
 export * from '~/queries';
 
-function getClient() {
+function getClient<User>(user?: User) {
   return createClient({
+    // We don't actually use the `url` here but executing queries
+    // on the local schema thanks to `executeExchange`. But `url` argument
+    // is required by `createClient` even when no network is involved.
     url: '/graphql',
-    exchanges: [executeExchange({ schema })],
+    exchanges: [executeExchange({ schema, context: { user } })],
   });
 }
 
-export async function query<QueryResult, Variables>(
+export async function query<QueryResult, Variables, User>(
   document: TypedDocumentNode<QueryResult, Variables>,
-  variables?: Variables
+  variables?: Variables,
+  user?: User
 ): Promise<QueryResult> {
-  const { data, error } = await getClient()
+  const { data, error } = await getClient(user)
     .query(document, variables as unknown as object)
     .toPromise();
 
@@ -26,11 +30,12 @@ export async function query<QueryResult, Variables>(
   throw error;
 }
 
-export async function mutation<MutationResult, Input>(
+export async function mutation<MutationResult, Input, User>(
   document: TypedDocumentNode<MutationResult, { input: Input }>,
-  input: Input
+  input: Input,
+  user?: User
 ): Promise<MutationResult> {
-  const { data, error } = await getClient()
+  const { data, error } = await getClient(user)
     .mutation(document, { input })
     .toPromise();
 
