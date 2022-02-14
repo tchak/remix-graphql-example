@@ -72,21 +72,21 @@ export type AddTaskMutationVariables = Exact<{
 }>;
 
 
-export type AddTaskMutation = { readonly addTask: { readonly error?: string | null | undefined, readonly task?: { readonly id: string } | null | undefined } };
+export type AddTaskMutation = { readonly addTask: { readonly error?: string | null, readonly task?: { readonly id: string } | null } };
 
 export type ToggleTaskMutationVariables = Exact<{
   input: ToggleTaskInput;
 }>;
 
 
-export type ToggleTaskMutation = { readonly toggleTask: { readonly error?: string | null | undefined, readonly task?: { readonly id: string } | null | undefined } };
+export type ToggleTaskMutation = { readonly toggleTask: { readonly error?: string | null, readonly task?: { readonly id: string } | null } };
 
 export type RemoveTaskMutationVariables = Exact<{
   input: RemoveTaskInput;
 }>;
 
 
-export type RemoveTaskMutation = { readonly removeTask: { readonly error?: string | null | undefined, readonly task?: { readonly id: string } | null | undefined } };
+export type RemoveTaskMutation = { readonly removeTask: { readonly error?: string | null, readonly task?: { readonly id: string } | null } };
 
 
 export const GetTasksDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"getTasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"tasks"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"checked"}}]}}]}}]} as unknown as DocumentNode<GetTasksQuery, GetTasksQueryVariables>;
