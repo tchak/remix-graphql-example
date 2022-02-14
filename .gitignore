@@ -109,4 +109,4 @@ dist
 /public/build
 
 # Level
-/db
+/db/tasks
